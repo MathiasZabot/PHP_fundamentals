@@ -8,7 +8,7 @@
 include_once "models/db.php";
 
 $db = new db();
-//$result = $db->getDataByID();
+$result = $db->getUsersData();
 
 include_once "templates/header.php";
 ?>
@@ -34,7 +34,7 @@ include_once "templates/header.php";
             <div class="input-group-prepend">
                 <label class="input-group-text" for="username">Username</label>
             </div>
-            <select class="custom-select" id="username">
+            <select class="custom-select" id="username" name="username">
                 <?php foreach($result as $row) : ?>
                     <option value="<?php echo $row['user_id'];?>">
                         <?php echo $row['username']; ?>
@@ -44,11 +44,11 @@ include_once "templates/header.php";
         </div>
         <div>
             <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Title">
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
         <div class="form-group">
             <label for="body">Post</label>
-            <input type="text" class="form-control" id="body" placeholder="Post">
+            <textarea class="form-control" id="body" name="body" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

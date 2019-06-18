@@ -7,10 +7,9 @@
  */
 include_once "models/db.php";
 
-if (isset($_POST['title'])){
+
+    $date = date("d-m-y","h:m:s");
     $db = new db();
-    $db->createPost($_POST['username'],$_POST['title'],$_POST['body']);
-}else{
-    header("Location: new.php?error=notitle");
-}
+    $db->createPost($_POST['title'],$_POST['body'],$date,$_POST['username']);
+
 header("Location: index.php");

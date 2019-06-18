@@ -8,9 +8,9 @@
 
 class feed
 {
-    public $title = 'Blog - News Cast';
-    public $link = 'www.ministrare.be';
-    public $description = 'NewsCast';
+    public $title = 'Blog';
+    public $link = 'nope.nope.com';
+    public $description = 'RandomBlog';
     public $language = 'nl';
 
     public function __construct($RSSData = array())
@@ -54,7 +54,6 @@ class feed
             $xml->writeElement('author', '');
             $xml->writeElement('comments', '');
             $xml->writeElement('category', '');
-            $xml->writeElement('author', '');
             // Closes the item element
             $xml->endElement();
         }

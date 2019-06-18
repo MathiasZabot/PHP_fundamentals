@@ -33,29 +33,35 @@ class db
         return $result;
     }
 
-    public function getDatabyId($table = null,$id = null){
-        $stmt = $this->conn->prepare("SELECT * FROM ".$table."WHERE post_id=".$id);
+    public function getPostById($id = null)
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM posts WHERE post_id = ".$id);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();
-        var_dump($result);
+        return $result;
+    }
+
+    public function getUsersData(){
+        $stmt = $this->conn->prepare("SELECT user_id,username FROM users");
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll();
+        return $result;
     }
 
     public function deleteDatabyId($table = null,$id = null){
         $stmt = $this->conn->prepare("DELETE FROM ".$table." WHERE post_id=".$id);
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
     }
 
-    public function updateDatabyId($table = null,$columnName = null, $id = null){
-        $stmt = $this->conn->prepare("UPDATE".$table."SET".$columnName." post_id=".$id);
+    public function updatePostbyId($id = null,$title = null ,$body = null ){
+        $stmt = $this->conn->prepare("UPDATE `posts` SET title = '".$title."',body = '".$body."' WHERE post_id=".$id);
         $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $result = $stmt->fetchAll();
-        var_dump($result);
     }
 
-    public function createPost($user_id,$title,$body){
-
+    public function createPost($title,$body,$create_date,$user_id){
+        $stmt = $this->conn->prepare("INSERT INTO posts (title, body, create_date, user_id) VALUES ('".$title."', '".$body."', TIMESTAMP('".$create_date."'), '".$user_id."');");
+        $stmt->execute();
     }
 }
