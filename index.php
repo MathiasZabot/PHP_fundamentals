@@ -10,7 +10,7 @@ include_once "models/db.php";
 include_once "models/feed.php";
 
 $db = new db();
-$data = $db->getAllData("posts");
+$data = $db->getAllData(/*"posts"*/);
 $feed = new feed($data);
 
 include_once "templates/header.php";
@@ -34,11 +34,11 @@ include_once "templates/header.php";
     <div class="blog-main">
         <?php foreach($data as $row) : ?>
             <div class="blog-post">
-                <h4 class="blog-post-title">
+                <h3 class="blog-post-title">
                     <?php echo $row['title']; ?>
-                </h4>
+                </h3>
                 <p class="blog-post-meta">
-                    <?php echo $row['create_date']; ?>
+                    <?php echo $row['create_date']." by ".$row['username']; ?>
                 </p>
                 <p>
                     <?php echo $row['body']; ?>

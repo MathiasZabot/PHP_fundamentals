@@ -24,9 +24,9 @@ class db
         }
     }
 
-    public function getAllData($table = null)
+    public function getAllData(/*$table = null*/)
     {
-        $stmt = $this->conn->prepare("SELECT * FROM ".$table);
+        $stmt = $this->conn->prepare("SELECT * FROM posts LEFT JOIN users ON posts.user_id = users.user_id");
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetchAll();

@@ -30,11 +30,9 @@ include_once "templates/header.php";
     </nav>
 
     <form action="new_handler.php" method="post">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label class="input-group-text" for="username">Username</label>
-            </div>
-            <select class="custom-select" id="username" name="username">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <select class="form-control" id="username" name="username">
                 <?php foreach($result as $row) : ?>
                     <option value="<?php echo $row['user_id'];?>">
                         <?php echo $row['username']; ?>

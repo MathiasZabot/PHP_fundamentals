@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
  <channel>
-  <title>Blog - News Cast</title>
-  <link>www.ministrare.be</link>
-  <description>NewsCast</description>
+  <title>Blog</title>
+  <link>nope.nope.com</link>
+  <description>RandomBlog</description>
   <language>nl</language>
   <image>
    <title></title>
@@ -20,7 +20,6 @@
    <author></author>
    <comments></comments>
    <category></category>
-   <author></author>
   </item>
   <item>
    <title>test</title>
@@ -30,7 +29,6 @@
    <author></author>
    <comments></comments>
    <category></category>
-   <author></author>
   </item>
  </channel>
 </rss>
